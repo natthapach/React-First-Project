@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Welcome from './Welcome'
 import Counter from './Counter'
+import TodoList from './TodoList'
 
 // function Welcome(props){
 //   return <h1>Hello, {props.name}</h1>;
@@ -24,8 +25,9 @@ class App extends Component {
         <p>
           
         </p>
-        <Welcome name='natthapach'/>
+        <Welcome name='natthapach' login={false}/>
         <Counter/>
+        <TodoList/>
       </div>
     );
   }

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import moment from 'moment'
 
 class Welcome extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
-			now: new Date().toLocaleString()
+			now: moment(new Date).format('YYYY-MM-dd ?? HH:mm:ss Z')
 		}
 		
 		setInterval(this.tick, 1000)
@@ -12,7 +13,7 @@ class Welcome extends Component {
 
 	tick = () => {
 		this.setState({
-			now: new Date().toLocaleString()
+			now: moment(new Date).format('YYYY-MM-dd ?? HH:mm:ss Z')
 		})
 	}
 
@@ -24,7 +25,17 @@ class Welcome extends Component {
 		return (
 			<div>
 				<h1>Hello, {this.props.name}</h1>
-				<p>This time is {this.state.now}</p>
+				{
+					(this.props.login)?(
+						<h2>Log in</h2>
+					):(
+						<h2>Sign in!</h2>
+					)
+				}
+				{
+					this.props.login && <h2>Login</h2> || <h2>Sign in!</h2>
+				}
+				<p><b>This time is</b> {this.state.now}</p>
 				<button onClick={this.showMe}>Click me!</button>
 			</div>
 		)
