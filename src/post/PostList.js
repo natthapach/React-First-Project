@@ -6,8 +6,9 @@ class PostList extends Component {
 		super(props)
 		this.state = {
 			posts: [],
-			searchTitle: ''
+			searchTitle: this.props.location.search.title || ''
 		}
+		console.log('sss')
 	}
 
 	componentDidMount(){
@@ -16,7 +17,7 @@ class PostList extends Component {
 
 	async fetchPosts(title){
 		try{
-			const url = (title)?`https://jsonplaceholder.typicode.com/posts?title=${title}`:'https://jsonplaceholder.typicode.com/posts'
+			const url = (title && title!=='')?`https://jsonplaceholder.typicode.com/posts?title=${title}`:'https://jsonplaceholder.typicode.com/posts'
 			const response = await fetch(url)
 			const posts = await response.json()
 			this.setState({
@@ -36,7 +37,7 @@ class PostList extends Component {
 
 	onClickSearch = (event) => {
 		this.fetchPosts(this.state.searchTitle)
-		event.preventDefault()
+		// event.preventDefault()
 	}
 
 	render(){
@@ -46,16 +47,18 @@ class PostList extends Component {
 			margin: 5,
 			background: '#eee'
 		}
-		const { posts } = this.state
+		const { posts, searchTitle } = this.state
 		return (
 			<div style={{
 				paddingLeft: '20%',
 				paddingRight: '20%',
 			}}>
 				<h1>Posts</h1>
-				<form className="form-inline">
-					<input className="form-control mr-sm-2" onChange={this.onSearchChage} value={this.state.searchTitle} type="search" placeholder="Search" aria-label="Search"/>
-					<button className="btn btn-outline-success my-2 my-sm-0" onClick={this.onClickSearch} type="submit">Search</button>
+				<form className="form-inline" style={{margin:5}}>
+					<input className="form-control mr-sm-2" onChange={this.onSearchChage} value={searchTitle} type="search" placeholder="Search" aria-label="Search"/>
+					<Link className='btn btn-success' to={(searchTitle!=='')?`/posts?title=${searchTitle}`:'/posts'} onClick={this.onClickSearch}>
+						Search
+					</Link>
 				</form>
 				{
 					posts.map((post, index) => (
