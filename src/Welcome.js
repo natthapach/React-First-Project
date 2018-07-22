@@ -13,7 +13,7 @@ class Welcome extends Component {
 
 	tick = () => {
 		this.setState({
-			now: moment(new Date).format('YYYY-MM-dd ?? HH:mm:ss Z')
+			now: moment(new Date).format('YYYY-MM-DD ?? HH:mm:ss Z')
 		})
 	}
 
