@@ -33,7 +33,7 @@ class App extends Component {
         <Switch>
           <Route path='/welcome' component={Welcome}/>
           <Route path='/counter' component={Counter}/>
-          <Route path='/todo' component={TodoList}/>
+          <Route path='/todo/:id' component={TodoList}/>
         </Switch>
         {/* <Welcome name='natthapach' login={false}/>
         <Counter/>
