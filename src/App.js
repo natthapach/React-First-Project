@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link, Route, Switch } from 'react-router-dom'
 import logo from './logo.svg';
 import './App.css';
 import Welcome from './Welcome'
@@ -25,9 +26,18 @@ class App extends Component {
         <p>
           
         </p>
-        <Welcome name='natthapach' login={false}/>
+        <Link to='/'>Home</Link>
+        <Link to='/welcome'>Welcome</Link>
+        <Link to='/counter'>Counter</Link>
+        <Link to='/todo'>Todo</Link>
+        <Switch>
+          <Route path='/welcome' component={Welcome}/>
+          <Route path='/counter' component={Counter}/>
+          <Route path='/todo' component={TodoList}/>
+        </Switch>
+        {/* <Welcome name='natthapach' login={false}/>
         <Counter/>
-        <TodoList/>
+        <TodoList/> */}
       </div>
     );
   }
