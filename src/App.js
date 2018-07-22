@@ -32,7 +32,7 @@ class App extends Component {
 					title: 'Hello3',
 					content: '333333333333333333333333333333333333333'
 				}
-			]
+      ]
 		}
   }
 
@@ -59,6 +59,8 @@ class App extends Component {
               <Link className='nav-item nav-link active' to='/posts'>Posts</Link>
             </div>
           </div>
+          
+
         </nav>
         <Switch>
           <Route path='/welcome' component={Welcome}/>
