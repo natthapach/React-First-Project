@@ -26,7 +26,7 @@ class TodoList extends Component {
 	}
 
 	render() {
-
+		console.log('query', this.props.location.search)
 		return (
 			<div>
 				<h1>Todo</h1>
