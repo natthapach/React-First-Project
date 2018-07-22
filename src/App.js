@@ -45,21 +45,21 @@ class App extends Component {
           <h1 className="App-title">{message}</h1>
           
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          
-        </p>
-        <Link to='/'>Home</Link>
-        <Link to='/welcome'>Welcome</Link>
-        <Link to='/todo'>Counter</Link>
-        <Link to='/todo/1'>Todo</Link>
-        <Link to='/posts'>Posts</Link>
-        <form>
-          <input type='text'/>
-          
-        </form>
+        
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+          <Link className='navbar-brand' to='/'>Home</Link>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div className="navbar-nav">
+              <Link className='nav-item nav-link active' to='/welcome'>Welcome</Link>
+              <Link className='nav-item nav-link active' to='/todo'>Counter</Link>
+              <Link className='nav-item nav-link active' to='/todo/1'>Todo</Link>
+              <Link className='nav-item nav-link active' to='/posts'>Posts</Link>
+            </div>
+          </div>
+        </nav>
         <Switch>
           <Route path='/welcome' component={Welcome}/>
           <Route path='/todo' exact component={Counter}/>

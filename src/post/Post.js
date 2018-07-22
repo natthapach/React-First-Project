@@ -29,22 +29,22 @@ class Post extends Component {
 		}catch(error){
 			console.log(error)
 		}
-		
 	}
 
 	render() {
-		
-
-		return (
+		const {post, user} = this.state
+		return (post.title) ? (
 			<div>
-				<h2>{this.state.post.title}</h2>
+				<h2>{post.title}</h2>
 				<p>
-					by <b>{this.state.user.name}</b>
+					by <b>{user.name}</b>
 				</p>
 				<p>
-					{this.state.post.body}
+					{post.body}
 				</p>
 			</div>
+		) : (
+			<div></div>
 		)
 	}
 }

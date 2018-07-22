@@ -48,13 +48,17 @@ class PostList extends Component {
 			margin: 5,
 			background: '#eee'
 		}
+		const { posts } = this.state
 		return (
-			<div>
+			<div style={{
+				paddingLeft: '20%',
+				paddingRight: '20%',
+			}}>
 				<h1>Posts</h1>
 				{
-					this.state.posts.map((post, index) => (
+					posts.map((post, index) => (
 						<Link key={index} to={'/posts/' + post.id}>
-							<div style={itemStyle}>
+							<div style={itemStyle} className='card'>
 								<b>{post.title}</b> <br/>
 								{post.author}
 							</div>
