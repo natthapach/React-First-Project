@@ -40,6 +40,7 @@ class App extends Component {
     const message = 'Hello Natthapach'
     return (
       <div className="App">
+        <div>Header</div>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">{message}</h1>
